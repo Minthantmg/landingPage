@@ -9,7 +9,7 @@ import Footer from "@/app/footer";
 
 const Page = () => {
     return (
-        <div>
+        <div className="bg-indigo-50">
             <Nav/>
             <Body/>
             <Update />

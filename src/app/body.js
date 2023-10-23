@@ -18,7 +18,7 @@ const Body = () => {
             <div ref={ref}
                  id="text-section"
                  className={`pt-80 ml-10 transform transition-transform ease-in-out duration-1000 ${
-                     inView ? "-translate-y-6 opacity-100" : "translate-y-96 opacity-0"}`}>
+                     inView ? "-translate-y-16 opacity-100" : "translate-y-96 opacity-0"}`}>
                 <Image src={image} alt=""/>
             </div>
             <div className="flex justify-center text-blue-600 font-bold font-mono text-lg">

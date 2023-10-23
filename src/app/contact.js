@@ -1,8 +1,13 @@
+'use client'
 import React from 'react';
 import quest from '../../public/quest.png'
 import Image from "next/image";
+import {useInView} from "react-intersection-observer";
 
 const Contact = () => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+    });
     return (
         <div>
             <div className="flex justify-center text-blue-600 font-bold font-mono text-lg mt-24">
@@ -31,7 +36,10 @@ const Contact = () => {
             <div className="text-center text-2xl font-bold mt-3 ml-16 mr-16">
                 Skip logging in, get what you need with a few key details
             </div>
-            <div className="mt-24 ml-2 mr-2 flex justify-center">
+            <div className={`mt-24 flex justify-center transform transition-transform ease-in-out duration-1000 ${
+                    inView ? "-translate-y-10 opacity-100" : "translate-y-96 opacity-0"}`}
+                     ref={ref}
+                     id="text-section">
                 <Image src={quest} alt=""/>
             </div>
             <form className="max-w-md mx-auto p-4 bg-white rounded mt-10 pb-44">

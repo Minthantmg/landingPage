@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import Image from "next/image";
 import imageOne from "../../public/img-one.png";
@@ -7,8 +8,12 @@ import monitoring from "../../public/Monitoring.png";
 import design from "../../public/Design.png";
 import repair from "../../public/Repair.png";
 import paint from "../../public/Paint.png";
+import {useInView} from "react-intersection-observer";
 
 const Update = () => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+    });
     return (
         <div className="bg-indigo-50">
             <div className="flex justify-center text-blue-600 font-bold font-mono text-lg pt-36">
@@ -35,13 +40,19 @@ const Update = () => {
                 It starts with an upgrade
             </div>
             <div>
-                <div className="mt-16">
+                <div className={`mt-16 transform transition-transform ease-in-out duration-1000 ${
+                    inView ? "-translate-x-0 opacity-100" : "-translate-x-96 opacity-0"}`}
+                     ref={ref}
+                     id="text-section">
                     <Image src={imageOne} alt=""/>
                 </div>
                 <div className="flex justify-end -mt-24">
                     <Image src={imageTwo} alt=""/>
                 </div>
-                <div className="-mt-36">
+                <div className={`mt-36 transform transition-transform ease-in-out duration-1000 ${
+                    inView ? "-translate-y-60 opacity-100" : "-translate-y-20 opacity-0"}`}
+                     ref={ref}
+                     id="text-section">
                     <Image src={imageThree} alt=""/>
                 </div>
             </div>

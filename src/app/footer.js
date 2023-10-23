@@ -8,7 +8,7 @@ import Image from "next/image";
 const Footer = () => {
     return (
         <div>
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-6">
                 <Image src={logo} alt=""/>
             </div>
             <div className="font-bold text-center text-lg mt-8">
